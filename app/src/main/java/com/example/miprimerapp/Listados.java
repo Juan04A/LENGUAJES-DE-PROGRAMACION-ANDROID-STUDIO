@@ -51,7 +51,7 @@ public class Listados extends AppCompatActivity {
                 FeedReaderContract.FeedEntry.column1,
                 FeedReaderContract.FeedEntry.column2
         };
-        String sortOrder = FeedReaderContract.FeedEntry.column2 + "ASC";
+        String sortOrder = FeedReaderContract.FeedEntry.column2 + " ASC";
         try (Cursor cursor = db.query(
                 FeedReaderContract.FeedEntry.nameTable,
                 projection,

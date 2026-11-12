@@ -15,7 +15,7 @@ public class DynamicTable {
 
     private static final int COLOR_FILA_PAR = Color.parseColor("#FFFFFF");
 
-    private static final int COLOR_FILA_IMPAR = Color.parseColor("F8F2B5");
+    private static final int COLOR_FILA_IMPAR = Color.parseColor("#F8F2B5");
 
     private final TableLayout tabla;
 

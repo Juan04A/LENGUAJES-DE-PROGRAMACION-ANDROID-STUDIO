@@ -125,4 +125,37 @@ public class MainActivity extends AppCompatActivity {
         int count = db.update(FeedReaderContract.FeedEntry.nameTable, values, selection, selectionArgs);
         mostrarMensaje("Se actualizó " + count + " registro(s)");
     }
+    public void Eliminar(View vista) {
+        String id = leerId();
+        if (id==null) return;
+
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        String selection = FeedReaderContract.FeedEntry._ID + " = ?";
+        String[] selectionArgs = {id};
+        int deletedRows = db.delete(FeedReaderContract.FeedEntry.nameTable, selection, selectionArgs);
+        if (deletedRows > 0) {
+            limpiarCampos();
+        }
+        mostrarMensaje("Se eliminó " + deletedRows + " registro(s)");
+    }
+
+    private String leerId() {
+        String id = txtid.getText().toString().trim();
+        if (id.isEmpty()) {
+            mostrarMensaje("Ingrese el Id del registro");
+            return null;
+        }
+        return id;
+    }
+
+    private void limpiarCampos() {
+        txtid.setText("");
+        txtnombre.setText("");
+        txtapellido.setText("");
+    }
+
+    private void mostrarMensaje(String mensaje) {
+        Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show();
+    }
+
 }
